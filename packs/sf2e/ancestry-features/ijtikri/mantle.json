@@ -30,11 +30,27 @@
                 "key": "Resistance",
                 "predicate": [
                     {
+                        "nor": [
+                            "self:effect:sacrificial-shell",
+                            "feat:adopted-overlords"
+                        ]
+                    }
+                ],
+                "type": "precision",
+                "value": "max(1,floor(@actor.level/2))",
+                "flag": "mantleResistance"
+            },
+            {
+                "key": "Resistance",
+                "predicate": [
+                    "feat:adopted-overlords",
+                    {
                         "not": "self:effect:sacrificial-shell"
                     }
                 ],
                 "type": "precision",
-                "value": "max(1,floor(@actor.level/2))"
+                "value": "(max(1,floor(@actor.level/2))+2)",
+                "flag": "mantleResistance"
             }
         ],
         "subfeatures": {
